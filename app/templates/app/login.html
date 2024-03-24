@@ -13,7 +13,7 @@
                     {% csrf_token %}
                     {% for fm in form %}
                         <div class="form-group">
-                            {{ fm.table_tag }} {{ fm }} <small class="text-danger">{{ fm.errors|striptags }}</small>
+                            {{ fm.label_tag }} {{ fm }} <small class="text-danger">{{ fm.errors|striptags }}</small>
                             <br>
                         </div>
                     {% endfor %}
