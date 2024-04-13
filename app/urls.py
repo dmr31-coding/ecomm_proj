@@ -23,7 +23,6 @@ urlpatterns = [
     path("pluscart/", views.plus_cart, name="pluscart"),
     path("minuscart/", views.minus_cart, name="minuscart"),
     path("removecart/", views.remove_cart, name="removecart"),
-    
     path("buy/", views.buy_now, name="buy-now"),
     path("profile/", views.ProfileView.as_view(), name="profile"),
     path("address/", views.address, name="address"),
@@ -37,7 +36,11 @@ urlpatterns = [
         ),
         name="login",
     ),
-    path("logout/", auth_views.LogoutView.as_view(next_page="login"), name="logout"),
+    path(
+        "accounts/logout/",
+        auth_views.LogoutView.as_view(next_page="login"),
+        name="logout",
+    ),
     path(
         "passwordchange/",
         auth_views.PasswordChangeView.as_view(
@@ -90,4 +93,6 @@ urlpatterns = [
         name="password_reset_complete",
     ),
     path("checkout/", views.checkout, name="checkout"),
+    path("paymentdone/", views.payment_done, name="paymentdone"),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
